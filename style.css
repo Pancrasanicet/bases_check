@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /* Pour que les marges ne soient pas comptées dans le calcul de la largeur et hauteur */
+	font-family: 'Poppins', sans-serif;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: linear-gradient(to top, #0d2a42 0%, #0d2a42 100%);
+}
+.wrapper {
+	background: #fff;
+	padding: 20px;
+	width: 450px;
+	border-radius: 5px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+.wrapper form {
+	height: 55px;
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: space-between;
+}
+form .tag {
+	position: absolute;
+	width: 30px;
+	text-align: center;
+	font-size: 17px;
+	color: #c4c4c4;
+	pointer-events: none; /* Pour que le tag ne reçoit pas d'évènement avec la souris de l'user */
+	left: 10px;
+	border-right: #c4c4c4 solid 2px;
+}
+form input:valid ~ .tag {
+	/* Si la donnée rentrée dans l'input est valide, on modifie la couleur du tag */
+	color: #0ea5fe;
+}
+form input {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	padding: 0 50px 0 45px;
+	font-size: 17px;
+	caret-color: #0ea5fe; /* Couleur du curseur dans l'input */
+	border: 2px solid #ddd;
+	border-radius: 5px;
+	transition: all 0.1s ease; /* commence lentement, accélère au milieu et ralentit à nouveau à la fin. */
+}
+form input::selection {
+	color: #fff;
+	background: #0ea5fe;
+}
+form input:focus,
+form input:valid {
+	border-color: #0ea5fe;
+}
+form input::placeholder {
+	color: #c4c4c4;
+}
+form .counter {
+	position: absolute;
+	right: 3px;
+	width: 55px;
+	font-size: 20px;
+	color: #c4c4c4;
+	text-align: center;
+	border-left: 1px solid #d8d8d8;
+	pointer-events: none;
+}
+form input:valid ~ .counter {
+	color: #0ea5fe;
+	border-color: #0ea5fe;
+}
+
+.counter.error,
+input.error,
+.tag.error {
+	color: red !important;
+	border-color: darkred !important;
+}
